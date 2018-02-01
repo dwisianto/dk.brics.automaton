@@ -7,3 +7,5 @@
 /.idea/kotlinc.xml
 *.iml
 /.gradle
+/out
+/.idea
