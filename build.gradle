@@ -1,0 +1,20 @@
+apply plugin: 'groovy'
+apply plugin: 'maven-publish'
+
+group = 'dk.brics'
+version = '2.12-2-nesneros.1-SNAPSHOT'
+
+targetCompatibility = sourceCompatibility = 1.8
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+        testImplementation 'org.spockframework:spock-core:1.1-groovy-2.4'
+        testImplementation "org.codehaus.groovy:groovy-all:${GroovySystem.version}"
+}
+
+task sourceJar(type: Jar) {
+    from project.sourceSets.main.allJava
+}
