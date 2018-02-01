@@ -208,8 +208,7 @@ public class RunAutomaton implements Serializable {
     public String toSerializedString() {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         try {
-//            OutputStream outputStream = new GZIPOutputStream(bos);
-            OutputStream outputStream = bos;
+            OutputStream outputStream = new GZIPOutputStream(bos);
             store(outputStream);
             outputStream.close();
         } catch (IOException e) {
