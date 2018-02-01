@@ -327,7 +327,7 @@ public class Automaton implements Serializable, Cloneable {
 	static void setStateNumbers(Set<State> states) {
 		if (states.size() == Integer.MAX_VALUE)
 			throw new IllegalArgumentException("number of states exceeded Integer.MAX_VALUE");
-		int number = 0;
+		short number = 0;
 		for (State s : states)
 			s.number = number++;
 	}
@@ -489,7 +489,7 @@ public class Automaton implements Serializable, Cloneable {
 		if (isSingleton()) {
 			State p = new State();
 			initial = p;
-			for (int i = 0; i < singleton.length(); i++) {
+			for (short i = 0; i < singleton.length(); i++) {
 				State q = new State();
 				q.number = i;
 				p.transitions.add(new Transition(singleton.charAt(i), q));

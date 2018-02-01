@@ -163,7 +163,7 @@ final public class MinimizationOperations {
 			triggers.add(v);
 		}
 		// initialize marks based on acceptance status and find transition arrays
-		for (int n1 = 0; n1 < states.length; n1++) {
+		for (short n1 = 0; n1 < states.length; n1++) {
 			states[n1].number = n1;
 			transitions[n1] = states[n1].getSortedTransitionArray(false);
 			for (int n2 = n1 + 1; n2 < states.length; n2++)
@@ -180,7 +180,7 @@ final public class MinimizationOperations {
 						markPair(mark, triggers, n1, n2);
 				}
 		// assign equivalence class numbers to states
-		int numclasses = 0;
+		short numclasses = 0;
 		for (int n = 0; n < states.length; n++)
 			states[n].number = -1;
 		for (int n1 = 0; n1 < states.length; n1++)
@@ -197,7 +197,7 @@ final public class MinimizationOperations {
 			newstates[n] = new State();
 		// select a class representative for each class and find the new initial
 		// state
-		for (int n = 0; n < states.length; n++) {
+		for (short n = 0; n < states.length; n++) {
 			newstates[states[n].number].number = n;
 			if (states[n] == a.initial)
 				a.initial = newstates[states[n].number];
@@ -237,7 +237,7 @@ final public class MinimizationOperations {
 		// make arrays for numbered states and effective alphabet
 		Set<State> ss = a.getStates();
 		State[] states = new State[ss.size()];
-		int number = 0;
+		short number = 0;
 		for (State q : ss) {
 			states[number] = q;
 			q.number = number++;
@@ -368,7 +368,7 @@ final public class MinimizationOperations {
 		}
 		// make a new state for each equivalence class, set initial state
 		State[] newstates = new State[k];
-		for (int n = 0; n < newstates.length; n++) {
+		for (short n = 0; n < newstates.length; n++) {
 			State s = new State();
 			newstates[n] = s;
 			for (State q : partition.get(n)) {
