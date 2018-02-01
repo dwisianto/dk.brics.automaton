@@ -50,8 +50,6 @@
   </properties>
 
   <build>
-    <sourceDirectory>src</sourceDirectory>
-    <outputDirectory>build</outputDirectory>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
