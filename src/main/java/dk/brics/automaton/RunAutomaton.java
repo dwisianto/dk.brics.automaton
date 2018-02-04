@@ -241,8 +241,9 @@ public class RunAutomaton implements Serializable {
         initial = a.initial.number;
         size = states.size();
         accept = new boolean[size];
-        transitions = new short[size * points.length];
-        for (int n = 0; n < size * points.length; n++)
+        int numberOfTransitions = size * points.length;
+        transitions = new short[numberOfTransitions];
+        for (int n = 0; n < numberOfTransitions; n++)
             transitions[n] = -1;
         for (State s : states) {
             int n = s.number;
@@ -265,10 +266,8 @@ public class RunAutomaton implements Serializable {
      * transition function.)
      */
     public int step(int state, char c) {
-        if (classmap == null || c >= classmap.length)
-            return transitions[state * points.length + getCharClass(c)];
-        else
-            return transitions[state * points.length + classmap[c]];
+        int tranitionIndex = state * points.length + ((classmap == null || c >= classmap.length) ? getCharClass(c) : classmap[c]);
+        return transitions[tranitionIndex];
     }
 
     /**
