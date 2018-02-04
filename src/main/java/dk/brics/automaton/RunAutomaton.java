@@ -193,8 +193,7 @@ public class RunAutomaton implements Serializable {
         s.flush();
     }
 
-    public static RunAutomaton fromSerializedString(String s) {
-        byte[] bytes = Base64.getDecoder().decode(s);
+    public static RunAutomaton fromSerializedByteArray(byte[] bytes) {
         try {
             InputStream inputStream = new GZIPInputStream(new ByteArrayInputStream(bytes));
             return RunAutomaton.load(inputStream);
@@ -205,7 +204,11 @@ public class RunAutomaton implements Serializable {
         }
     }
 
-    public String toSerializedString() {
+    public static RunAutomaton fromSerializedString(String s) {
+        return fromSerializedByteArray(Base64.getDecoder().decode(s));
+    }
+
+    public byte[] toSerializedByteArray() {
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         try {
             OutputStream outputStream = new GZIPOutputStream(bos);
@@ -214,8 +217,11 @@ public class RunAutomaton implements Serializable {
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
-        String s = Base64.getEncoder().withoutPadding().encodeToString(bos.toByteArray());
-        return s;
+        return bos.toByteArray();
+    }
+
+    public String toSerializedString() {
+        return Base64.getEncoder().withoutPadding().encodeToString(toSerializedByteArray());
     }
 
     /**
