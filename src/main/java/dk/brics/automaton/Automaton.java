@@ -349,8 +349,12 @@ public class Automaton implements Serializable, Cloneable {
         if (states.size() == Integer.MAX_VALUE)
             throw new IllegalArgumentException("number of states exceeded Integer.MAX_VALUE");
         short number = 0;
-        for (State s : states)
+        for (State s : states) {
+            if (number < 0) {
+                throw new RuntimeException("Too many states");
+            }
             s.number = number++;
+        }
     }
 
     /**
