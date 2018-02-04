@@ -330,4 +330,10 @@ public class RunAutomaton implements Serializable {
     public AutomatonMatcher newMatcher(CharSequence s, int startOffset, int endOffset) {
         return new AutomatonMatcher(s.subSequence(startOffset, endOffset), this);
     }
+
+    public void sameCharClass(char baseChar, String otherChars) {
+        for (int i = 0; i < otherChars.length(); i++) {
+            this.classmap[otherChars.charAt(i)] = this.classmap[baseChar];
+        }
+    }
 }
