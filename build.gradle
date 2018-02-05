@@ -2,7 +2,7 @@ apply plugin: 'groovy'
 apply plugin: 'maven-publish'
 
 group = 'dk.brics'
-version = '2.12-2-nesneros.1-SNAPSHOT'
+version = '2.12-2-nesneros.1'
 
 targetCompatibility = sourceCompatibility = 1.8
 
