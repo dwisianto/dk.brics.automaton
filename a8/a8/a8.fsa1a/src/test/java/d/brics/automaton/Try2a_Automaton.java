@@ -14,19 +14,14 @@ import dk.brics.automaton.State;
 import dk.brics.automaton.StatePair;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class Try1b_StatePair {
+public class Try2a_Automaton {
 
-	static Logger logger = Logger.getLogger(Try1b_StatePair.class);
+	static Logger logger = Logger.getLogger(Try2a_Automaton.class);
 
 	@Test
 	public void t2a() {
 		logger.info("t1a");
 		
-		State s1a = new State();
-		State s2a = new State();
-		StatePair sp = new StatePair(s1a,s2a);
-		Assert.assertEquals( 0, s1a.compareTo(sp.getFirstState()) );
-		Assert.assertEquals( 0,s2a.compareTo(sp.getSecondState()) );
 	}
 
 	@Test
