@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
 
 public class TestAutorex {
 
-    final static Logger LOGGER = LoggerFactory.getLogger(TestAutorex.class);
+	final static Logger LOGGER = LoggerFactory.getLogger(TestAutorex.class);
 
     @Test
     public void testArex() {

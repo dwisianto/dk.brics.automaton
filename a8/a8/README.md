@@ -1,2 +1,0 @@
-- it can be compile in java1.6
-- 
