@@ -12,7 +12,7 @@ import dk.brics.automaton.RegExp;
 
 public class TryAutorex1a {
 
-	final static Logger LOGGER = LoggerFactory.getLogger(TryAutorex1a.class);
+	final static Logger logger = LoggerFactory.getLogger(TryAutorex1a.class);
 
 	@Test
 	public void testArex() {
@@ -22,6 +22,8 @@ public class TryAutorex1a {
 
 		Automaton a = new RegExp(test).toAutomaton();
 		Automaton b = new RegExp(test2).toAutomaton();
+		logger.info(a.toDot());		
+		logger.info(b.toDot());
 
 		Automaton b_minus_a = b.minus(a);
 		Automaton b_union_a = b.union(a); 
